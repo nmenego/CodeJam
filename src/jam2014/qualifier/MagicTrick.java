@@ -10,24 +10,26 @@ import java.util.Scanner;
 public class MagicTrick {
 
 	public static void main(String[] args) {
-		MagicTrick trick = new MagicTrick();
 		Scanner in = new Scanner(System.in);
 
 		List<int[]> inputs = new ArrayList<int[]>();
 		int cases = in.nextInt();
 
 		for (int i = 0; i < cases; i++) {
-			trick.saveInput(in, inputs);
+			MagicTrick.saveInput(in, inputs);
 		}
 
+		// main logic
 		for (int caseNumber = 0; caseNumber < inputs.size(); caseNumber++) {
 			int[] input = inputs.get(caseNumber);
 			System.out.print("Case #" + (caseNumber + 1) + ": ");
+
+			MagicTrick trick = new MagicTrick();
 			trick.magicTrick(input);
 		}
 	}
 
-	public void saveInput(Scanner in, List<int[]> inputs) {
+	private static void saveInput(Scanner in, List<int[]> inputs) {
 		int[] arr = new int[34]; // 0 an 17 for guesses
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = in.nextInt();
